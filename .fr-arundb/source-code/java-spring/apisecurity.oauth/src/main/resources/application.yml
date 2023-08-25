@@ -1,0 +1,13 @@
+logging:
+  pattern:
+    console: "%clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(---){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+
+server:
+  port: 8081
+  
+okta:
+  oauth2:
+    issuer: https://dev-61601624.okta.com/oauth2/default
+    client-id: 0oaaaol92QKWk55985d6
+    client-secret: m2Im9lsD2W-05Z5yu43g28hcZwzPqVk0tBXt_fAd
+    redirect-uri: /authorization-code/callback
