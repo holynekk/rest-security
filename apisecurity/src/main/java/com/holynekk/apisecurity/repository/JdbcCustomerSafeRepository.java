@@ -52,7 +52,7 @@ public class JdbcCustomerSafeRepository {
                 .addValue("fullName", newCustomer.getFullName())
                 .addValue("email", newCustomer.getEmail())
                 .addValue("birthDate", newCustomer.getBirthDate())
-                .addValue("gender", newCustomer.getGender();
+                .addValue("gender", newCustomer.getGender());
 
         namedParameterJdbcTemplate.update(sql, sqlParameters);
     }
