@@ -1,23 +1,0 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: postgres
-  jpa:    show-sql: true
-    generate-ddl: false
-    hibernate:
-      ddl-auto: none
-  
-logging:
-  pattern:
-    console: "%clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(---){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
-
-server:  ssl:    key-store-type: PKCS12
-    key-store: classpath:keystore/apisecurity.p12
-    key-store-password: password
-    key-alias: apisecurity
-    enabled: false
-  servlet:
-    session:
-      cookie:
-        max-age: 15m
