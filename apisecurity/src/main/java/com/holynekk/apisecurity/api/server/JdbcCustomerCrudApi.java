@@ -3,13 +3,16 @@ package com.holynekk.apisecurity.api.server;
 import com.holynekk.apisecurity.api.request.sqlinjection.JdbcCustomerPatchRequest;
 import com.holynekk.apisecurity.entity.JdbcCustomer;
 import com.holynekk.apisecurity.repository.JdbcCustomerCrudRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/sqlinjection/crud/v1")
+@Validated
 public class JdbcCustomerCrudApi {
 
     @Autowired
@@ -31,7 +34,7 @@ public class JdbcCustomerCrudApi {
     }
 
     @PostMapping(value = "/customer")
-    public void createCustomer(@RequestBody(required = true) JdbcCustomer newCustomer) {
+    public void createCustomer(@RequestBody(required = true) @Valid JdbcCustomer newCustomer) {
         repository.save(newCustomer);
     }
 

@@ -4,12 +4,14 @@ import com.holynekk.apisecurity.api.request.sqlinjection.JdbcCustomerPatchReques
 import com.holynekk.apisecurity.entity.JdbcCustomer;
 import com.holynekk.apisecurity.repository.JdbcCustomerDangerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/sqlinjection/danger/v1")
+@Validated
 public class jdbcCustomerDangerApi {
 
     @Autowired

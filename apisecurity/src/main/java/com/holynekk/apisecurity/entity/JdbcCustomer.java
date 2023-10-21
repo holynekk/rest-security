@@ -1,5 +1,7 @@
 package com.holynekk.apisecurity.entity;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
@@ -11,10 +13,12 @@ public class JdbcCustomer {
 
     private String fullName;
 
+    @Email
     private String email;
 
     private LocalDate birthDate;
 
+    @Pattern(regexp = "^[MF]$", message = "Invalid gender!")
     private String gender;
 
     public int getCustomerId() {
