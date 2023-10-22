@@ -3,4 +3,10 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: ()mert2345
+    password: *******
+  servlet:
+    multipart:
+      enabled: true
+  jpa:
+    show-sql: true
+

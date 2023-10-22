@@ -19,9 +19,9 @@ import com.holynekk.apisecurity.api.request.sqlinjection.JdbcCustomerPatchReques
 import com.holynekk.apisecurity.entity.JdbcCustomer;
 import com.holynekk.apisecurity.repository.JdbcCustomerSafeRepository;
 
-@RestController
-@RequestMapping("/api/sqlinjection/safe/v1")
-@Validated
+//@RestController
+//@RequestMapping("/api/sqlinjection/safe/v1")
+//@Validated
 public class JdbcCustomerSafeApi {
 
     @Autowired
