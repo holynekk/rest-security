@@ -1,4 +1,4 @@
-package com.holynekk.apisecurity.api.server;
+package com.holynekk.apisecurity.api.server.sqlInjection;
 
 import com.holynekk.apisecurity.entity.JpaCustomer;
 import com.holynekk.apisecurity.repository.JpaCustomerCrudRepository;

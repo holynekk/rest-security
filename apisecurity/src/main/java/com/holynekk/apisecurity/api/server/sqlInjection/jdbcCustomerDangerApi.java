@@ -1,4 +1,4 @@
-package com.holynekk.apisecurity.api.server;
+package com.holynekk.apisecurity.api.server.sqlInjection;
 
 import com.holynekk.apisecurity.api.request.sqlinjection.JdbcCustomerPatchRequest;
 import com.holynekk.apisecurity.entity.JdbcCustomer;

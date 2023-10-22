@@ -1,4 +1,4 @@
-package com.holynekk.apisecurity.api.server;
+package com.holynekk.apisecurity.api.server.sqlInjection;
 
 import java.util.List;
 
