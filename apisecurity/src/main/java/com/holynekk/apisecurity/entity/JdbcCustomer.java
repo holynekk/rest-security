@@ -2,13 +2,13 @@ package com.holynekk.apisecurity.entity;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
-import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 
+//@Entity
 public class JdbcCustomer {
 
-    @Id
+//    @Id
     private int customerId;
 
     private String fullName;

@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalTime;
 
-@RestController
-@RequestMapping("/api/xss/danger/v1")
-@CrossOrigin(origins = "http://localhost:3000")
+//@RestController
+//@RequestMapping("/api/xss/danger/v1")
+//@CrossOrigin(origins = "http://localhost:3000")
 public class XssSimpleDangerApi {
 
     @GetMapping(value = "/greeting")
@@ -21,7 +21,6 @@ public class XssSimpleDangerApi {
     @GetMapping(value = "/file")
     public Resource downloadFile() {
         ClassPathResource resource = new ClassPathResource("static/fileWithXss,csv");
-
         return resource;
     }
 }

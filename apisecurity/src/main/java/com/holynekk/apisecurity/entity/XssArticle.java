@@ -1,10 +1,10 @@
 package com.holynekk.apisecurity.entity;
 
-import javax.persistence.Id;
 
+//@Entity
 public class XssArticle {
 
-    @Id
+//    @Id
     private int articleId;
 
     private String article;
