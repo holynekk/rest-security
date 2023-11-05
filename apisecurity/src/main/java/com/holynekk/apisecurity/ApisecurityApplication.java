@@ -2,11 +2,11 @@ package com.holynekk.apisecurity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 @SpringBootApplication
-//@EnableJpaRepositories("com.holynekk.apisecurity.*")
-//@EntityScan("com.holynekk.apisecurity.*")
+@EnableScheduling
 public class ApisecurityApplication {
 
 	public static void main(String[] args) {
