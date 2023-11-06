@@ -27,8 +27,8 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.util.regex.Pattern;
 
-@Configuration
-@Order(1)
+//@Configuration
+//@Order(1)
 public class BasicAclUriFilter extends OncePerRequestFilter {
 
     @Autowired

@@ -1,6 +1,7 @@
 package com.holynekk.apisecurity.api.filter;
 
 import com.holynekk.apisecurity.api.server.auth.basic.BasicAuthApi;
+import com.holynekk.apisecurity.constant.SessionCookieConstant;
 import com.holynekk.apisecurity.repository.BasicAuthUserRepository;
 import com.holynekk.apisecurity.util.EncodeDecodeUtil;
 import com.holynekk.apisecurity.util.EncryptDecryptUtil;
@@ -10,9 +11,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -20,14 +18,15 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-//@Configuration
-//@Order(0)
-public class BasicAclUserFilter extends OncePerRequestFilter {
+public class SessionCookieAuthFilter extends OncePerRequestFilter {
 
-    @Autowired
     private BasicAuthUserRepository basicAuthUserRepository;
 
-    private boolean isValidBasicAuth(String basicAuthString) throws Exception {
+    public SessionCookieAuthFilter(BasicAuthUserRepository basicAuthUserRepository) {
+        this.basicAuthUserRepository = basicAuthUserRepository;
+    }
+
+    private boolean isValidBasicAuth(String basicAuthString, HttpServletRequest request) throws Exception {
 
         if (StringUtils.isBlank(basicAuthString)) {
             return false;
@@ -47,7 +46,12 @@ public class BasicAclUserFilter extends OncePerRequestFilter {
                 return false;
             }
 
-            return HashUtil.isBcryptMatch(submittedPassword, existingData.get().getPasswordHash());
+            if(HashUtil.isBcryptMatch(submittedPassword, existingData.get().getPasswordHash())) {
+                request.setAttribute(SessionCookieConstant.REQUEST_ATTRIBUTE_USERNAME, encryptedUsername);
+                return true;
+            } else {
+                return false;
+            }
         } catch (Exception e) {
             return false;
         }
@@ -59,7 +63,7 @@ public class BasicAclUserFilter extends OncePerRequestFilter {
         var basicAuthString = request.getHeader("Authorization");
 
         try {
-            if (isValidBasicAuth(basicAuthString)) {
+            if (isValidBasicAuth(basicAuthString, request)) {
                 chain.doFilter(request, response);
             } else {
                 response.setStatus(HttpStatus.UNAUTHORIZED.value());

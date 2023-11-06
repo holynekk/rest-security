@@ -3,7 +3,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: *****
+    password: **
   servlet:
     multipart:
       enabled: true
@@ -13,7 +13,11 @@ logging:
 #  level:
 #    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
 
-#server:
+server:
+  servlet:
+    session:
+      cookie:
+        max-age: 15m
 #  ssl:
 #    key-store-type: PKCS12
 #    key-store: classpath:keystore/apisecurity.p12
