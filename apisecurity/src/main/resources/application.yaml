@@ -3,10 +3,20 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: ()mert2345
+    password: ****
   servlet:
     multipart:
       enabled: true
   jpa:
     show-sql: true
+logging:
+#  level:
+#    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
 
+#server:
+#  ssl:
+#    key-store-type: PKCS12
+#    key-store: classpath:keystore/apisecurity.p12
+#    key-store-password: ****
+#    key-alias: apisecurity
+#    enabled: false
