@@ -20,10 +20,10 @@ public class SessionCookieFilterConfig {
     private SessionCookieTokenService tokenService;
 
     @Bean
-    public FilterRegistrationBean<BasicAuthFilter> sessionCookieAuthFilter() {
-        FilterRegistrationBean<BasicAuthFilter> registrationBean = new FilterRegistrationBean<>();
+    public FilterRegistrationBean<SessionCookieAuthFilter> sessionCookieAuthFilter() {
+        FilterRegistrationBean<SessionCookieAuthFilter> registrationBean = new FilterRegistrationBean<>();
 
-        registrationBean.setFilter(new BasicAuthFilter(basicAuthUserRepository));
+        registrationBean.setFilter(new SessionCookieAuthFilter(basicAuthUserRepository));
         registrationBean.addUrlPatterns("/api/auth/session-cookie/v1/login");
 
         return registrationBean;
